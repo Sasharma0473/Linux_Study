@@ -1,0 +1,1236 @@
+INTRODUCTION OF LINUX:==
+========================
+TOPICS NEEDS TO VISIT:--
+------------------------
+1) INTRODUCTION- SETTING UP THE Environment
+2) BASH - USING THE CLI
+3) LINUX- UNDERSTAND THE CORE CONCEPT OF LINUX
+4) ADVANCE BASH - AUTOMATE YOUR WORKFLOW WITH BASH SCRIPT
+
+
+IT Process Management:==
+========================
+IT Industry --> build Software --> 
+Need of Software:: to automate the processess and ensure help for the customer.
+
+Basic Architecture of Software Management::  
+Lets take ABC company --> language used C,C++, Python etc --> developer need --> 
+Testing the code written by developer need tester --> 
+
+1). Github:-- Merge the code in one repo when multiple developer working on same task.
+2). Sonarqube:-- To test the quality of code which is written by developer. 
+3). maven:-- used to build the written code.
+4). selenium:-- used to test the build software.
+5). Ansible:-- used to deploy the application to the production line 
+
+6). Jenkins used to manage the CICD which streamline the process of github, sonarqube, maven, selenium, Ansible.
+
+This is Complete IT process Management in which we build and deploy the software on net, which is used by multiple users.
+
+
+Technology to learn:==
+======================
+1). Linux.
+2). One cloud Platform
+3). Terraform
+4). Docker
+5). Kubernetes
+6). ansible
+7). Github
+8). Jenkins
+projects
+9). SonarQube.
+10). maven
+projects
+11). Selenium 
+projects
+12). nagios
+projects
+
+13). AWS DevOps Services
+
+Topics To Learn in Linux:--
+---------------------------
+1). Linux Installation
+2). Linux System Hierarchy
+3). Linux Reboot and Shutdown Commands
+4). Linux Basic Commands:- ls, touch, mkdir, vim, find, rm, rename, grep etc. 
+5). Linux User Management
+6). Linux Group Management
+7). Linux Permission Management
+8). Hard disk Management
+9). Software Management
+10). Network Configuration
+11). SSH Configuration
+12). Firewall 
+13). TroubleShooting
+
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-1:==
+============
+
+
+What is OS::--
+--------------
+An Operating System (OS) is system software that manages computer hardware and software resources and 
+provides common services for computer programs. 
+It acts as an intermediary between users and the computer hardware, ensuring efficient execution of applications.
+
+OR
+System -- kisi bhi device ko system bolte h 
+operating -- device ko chalne ke liye software ki need hoti h
+ek device ko chalne ke liye jo software ki need hoti h usse operating system bolte h.
+
+
+Key Functions of an Operating System::--
+----------------------------------------
+1). Memory Management: Allocates and deallocates memory space as required by programs.
+2). File System Management: Organizes, stores, and retrieves data efficiently.
+3). Process Management: Manages the execution of multiple processes, including scheduling, creation, and termination.
+4). Device Management: Controls and communicates with hardware devices such as printers, keyboards, and hard drives.
+5). Security and Access Control: Protects data and resources from unauthorized access.
+6). User Interface: Provides a graphical or command-line interface for user interaction.
+7). Networking: Manages network connections for communication between systems.
+
+
+Types of OS::--
+---------------
+
+1). Single user multitasking:- 
+There is only one user but the OS can perform multiple task at the same time.
+like i am single user but i can listen song, browse on internet etc
+
+
+2). Multi-User Multi-tasking:--
+In this multiple user can login to the same OS and can perform multiple task at the same time.
+Ex: Linux.
+
+3). Batch OS: Executes jobs without user interaction (e.g., early IBM systems).
+4). Time-Sharing OS: Multiple users share system resources simultaneously (e.g., Unix).
+5). Distributed OS: Manages multiple connected computers as a single system (e.g., Google’s Fuchsia).
+6). Real-Time OS (RTOS): Processes tasks with strict time constraints (e.g., VxWorks).
+7). Embedded OS: Runs on embedded devices like IoT gadgets (e.g., FreeRTOS).
+8). Mobile OS: Designed for smartphones and tablets (e.g., Android, iOS).
+9). Network OS: Provides network-based functionalities (e.g., Cisco IOS).
+
+
+LINUX INTRODUCTION:==
+=====================
+
+What is Linux??:--
+------------------
+Its a open source kernel.
+A kernel is a core part of OS, managing system resource and communication between hardware and software.
+
+use case:--
+servers, Data centre, micro computer , cyber security, IOT and Andriod, 
+
+Its a open source, lightweight, Modifyable. 
+
+To Run any Application we need hardware or system. 
+we need OS to run application 
+
+
+==============================================================================================================
+Linux is the kernel of a family of open-source Unix-like operating
+systems (OS)
+► OS: A system software that manages computer hardware and
+provides various services for computer programs
+► Unix: A powerful, multitasking, multi-user OS that serves as the
+basis for many modern OS
+► Kernel: The kernel is the core part of an OS.
+► It is responsible for managing the hardware, including the
+CPU, memory, disk and other devices
+
+OS jo hota h it is a compilation of multiple program. in which usme se ek esa program hota h jo hr program ko 
+manage karta h usse hum kernel bolte h.
+==============================================================================================================
+
+GUN + Linux = OS::--
+--------------------
+GNU and Linux – How Are They Related?
+GNU provides the system utilities (shell, compiler, libraries, etc.), while Linux is the kernel.
+Together, they form GNU/Linux, the complete operating system (e.g., Ubuntu, Debian).
+
+Redhat OS::--
+-------------
+They have given 3 variant in market.
+1). RHEL --> Redhat Enterprise linux, paid with all software packages and utilities, RHEL with 8 version.
+2). CentOS --> free 
+3). Fedora --> used for testing.
+
+In Rhel the software and Package which is included by the redhat is capable 
+of handling or running the Applcation at proudction environment level.
+
+Used to manage servers.
+
+Ubuntu OS::--
+-------------
+They mainly focus on the Desktop level program.
+
+Kali OS::--
+-----------
+Used for hacking.
+
+
+Linux Distribution(Distro):--
+-----------------------------
+An OS Made from a SOFTWARE COLLECTION which include the linux kernel and often a package management system.
+OR
+
+A Linux distribution (distro) is a customized version of Linux that includes the 
+LINUX KERNEL, SYSTEM UTILITIES, SOFTWARE PACKAGES, AND A PACKAGE MANAGER. 
+Different distros are designed for various purposes, such as desktops, servers, security, and development.
+linux ubuntu, linux centos, redhat, linux kali etc 
+
+
+Why Are There Different Linux Distros?::--
+------------------------------------------
+Since Linux is open-source, different organizations and communities modify and package it differently to suit various needs. 
+Each distro comes with:
+✅ A Package Manager (APT, YUM, Pacman)
+✅ A Desktop Environment (GNOME, KDE, XFCE)
+✅ Pre-installed software (browsers, office tools, media players)
+
+
+How to Choose a Linux Distro?
+🔹 For Beginners? → Ubuntu, Mint, Zorin OS
+🔹 For Servers? → Debian, CentOS, RHEL
+🔹 For Hacking? → Kali Linux, Parrot OS
+🔹 For Customization? → Arch Linux, Gentoo
+🔹 For Gaming? → Pop!_OS, SteamOS
+🔹 For Old PCs? → Lubuntu, Puppy Linux
+
+
+==============================================================================================================
+
+There are various OS built upon GNU/Linux, called Linux distributions
+(distros)
+► Each distribution then adds additional, specific software:
+► This allows to cater to the needs of a specific user group
+► Most Linux distributions are free
+► In this course, we will explore 2 popular distributions:
+
+► Ubuntu:
+► Part of the Debian family
+► Designed to be user-friendly
+
+► CentOS Stream:
+► Part of the Red Hat family
+► It's free to use, and allows us to familiarize ourselves
+with the Red Hat family
+
+For personal use -- ubuntu
+
+For Large scale/ sever store senetive information paying a licene fee for production use. -- CentOS
+
+==============================================================================================================
+
+Linux Principle::--
+-------------------
+1). Everything is File
+2). Configuration Data Stored in Text.
+3). Ability to chain program together to perform complex task.
+
+
+why Linux??:--
+--------------
+1). Multiuser and Multitasking
+2). wide hardware Support, Hardware Independent.
+3). Fully Supported.
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-2:==
+============
+
+
+What is a Virtual Machine (VM)?::--
+-----------------------------------
+A virtual machine, commonly shortened to just VM, is no different than any other physical computer 
+like a laptop, smart phone, or server. It has a CPU, memory, disks to store your files, and can connect to the internet if needed. 
+While the parts that make up your computer (called hardware) are physical and tangible, 
+VMs are often thought of as virtual computers or software-defined computers within physical servers, existing only as code.
+
+
+How does a virtual machine work?::--
+------------------------------------
+Virtualization is the process of creating a software-based, or "virtual" version of a computer, with dedicated amounts of 
+CPU, memory, and storage that are "borrowed" from a physical host computer—such as your personal computer— 
+and/or a remote server—such as a server in a cloud provider's datacenter. 
+
+** A virtual machine is a computer file, typically called an image, that behaves like an actual computer. 
+
+It can run in a window as a separate computing environment, often to run a different operating system—or 
+even to function as the user's entire computer experience—as is common on many people's work computers. 
+
+The virtual machine is partitioned from the rest of the system, meaning that the software inside a 
+VM can't interfere with the host computer's primary operating system.
+
+
+What are VMs used for?::--
+--------------------------
+Building and deploying apps to the cloud.
+Trying out a new operating system (OS), including beta releases.
+Spinning up a new environment to make it simpler and quicker for developers to run dev-test scenarios.
+Backing up your existing OS.
+Accessing virus-infected data or running an old application by installing an older OS.
+Running software or apps on operating systems that they weren't originally intended for.
+
+
+What are the benefits of using VMs?::--
+---------------------------------------
+Cost savings
+Agility and speed
+Lowered downtime
+Scalability
+Security benefits
+
+
+What is Virtualization?::--
+---------------------------
+Virtualization is a technology that enables the creation of multiple simulated environments or dedicated resources 
+from a single physical hardware system. 
+It allows multiple operating systems (OS) or applications to run on the same physical machine by abstracting the underlying hardware. 
+Virtualization improves resource utilization, scalability, flexibility, and cost efficiency.
+
+==============================================================================================================
+Virtualization is technology that you can use to create virtual representations of 
+servers, storage, networks, and other physical machines. Virtual software mimics the functions of 
+physical hardware to run multiple virtual machines simultaneously on a single physical machine. 
+Businesses use virtualization to use their hardware resources efficiently and get greater returns from their investment. 
+It also powers cloud computing services that help organizations manage infrastructure more efficiently.
+
+OR
+
+To properly understand Kernel-based Virtual Machine (KVM), you first need to understand some basic concepts in virtualization. 
+Virtualization is a process that allows a computer to share its hardware resources with multiple digitally separated environments. 
+Each virtualized environment runs within its allocated resources, such as memory, processing power, and storage. 
+With virtualization, organizations can switch between different operating systems on the same server without rebooting. 
+
+
+
+
+==============================================================================================================
+
+Why is virtualization important?::--
+------------------------------------
+By using virtualization, you can interact with any hardware resource with greater flexibility. 
+Physical servers consume electricity, take up storage space, and need maintenance. 
+You are often limited by physical proximity and network design if you want to access them. 
+Virtualization removes all these limitations by abstracting physical hardware functionality into software. 
+You can manage, maintain, and use your hardware infrastructure like an application on the web.
+
+Virtualization example
+Consider a company that needs servers for three functions:
+
+Store business email securely
+Run a customer-facing application
+Run internal business applications
+Each of these functions has different configuration requirements: 
+
+The email application requires more storage capacity and a Windows operating system.
+The customer-facing application requires a Linux operating system and high processing power to handle large volumes of website traffic.
+The internal business application requires iOS and more internal memory (RAM).
+
+
+
+Types of Virtualization::--
+---------------------------
+1). Server Virtualization – Multiple virtual servers run on a single physical server.
+2). Network Virtualization – Logical networks abstracted from physical network infrastructure.
+3). Storage Virtualization – Multiple storage devices appear as a single unit.
+4). Desktop Virtualization – Users access a virtual desktop remotely.
+5). Application Virtualization – Applications run without direct installation on an OS.
+
+
+How does virtualization work?::--
+=================================
+Virtualization uses specialized software, called a hypervisor, to create several cloud instances or virtual machines on one physical computer.
+
+Cloud instances or virtual machines::--
+---------------------------------------
+After you install virtualization software on your computer, you can create one or more virtual machines. 
+You can access the virtual machines in the same way that you access other applications on your computer. 
+Your computer is called the host, and the virtual machine is called the guest. 
+Several guests can run on the host. Each guest has its own operating system, which can be the same or different from the host operating system. 
+
+From the user’s perspective, the virtual machine operates like a typical server. 
+It has settings, configurations, and installed applications. Computing resources, such as 
+central processing units (CPUs), Random Access Memory (RAM), and storage appear the same as on a physical server. 
+You can also configure and update the guest operating systems and their 
+applications as necessary without affecting the host operating system.
+
+
+What is Hypervisor:--
+---------------------
+A hypervisor (also called a Virtual Machine Monitor, VMM) is a software layer that creates and manages virtual machines (VMs). 
+It enables multiple VMs to share the same physical hardware while keeping them isolated.
+example oracle virtual box
+
+Type 1 hypervisor:--
+--------------------
+A type 1 hypervisor, or bare-metal hypervisor, is a hypervisor program installed directly on 
+the computer’s hardware instead of the operating system. 
+Therefore, type 1 hypervisors have better performance and are commonly used by enterprise applications. 
+KVM uses the type 1 hypervisor to host multiple virtual machines on the Linux operating system.
+Ex:- VMware ESXi, Vsphere, Citrix Xen server
+
+Type 2 hypervisor::--
+---------------------
+Also known as a hosted hypervisor, the type 2 hypervisor is installed on an operating system. 
+Type 2 hypervisors are suitable for end-user computing.
+
+Examples:
+Oracle VirtualBox
+VMware Workstation
+Parallels Desktop
+
+What are the benefits of virtualization?::--
+--------------------------------------------
+1). Efficient resource use
+2). Automated IT management
+3). Faster disaster recovery
+
+
+How is virtualization different from cloud computing?::--
+---------------------------------------------------------
+Cloud computing is the on-demand delivery of computing resources over the internet with pay-as-you-go pricing. 
+Instead of buying, owning, and maintaining a physical data center, you can access technology services, 
+such as computing power, storage, and databases, as you need them from a cloud provider.
+
+Virtualization technology makes cloud computing possible. Cloud providers set up and maintain their own data centers. 
+They create different virtual environments that use the underlying hardware resources. 
+You can then program your system to access these cloud resources by using APIs. 
+Your infrastructure needs can be met as a fully managed service.
+
+
+How is server virtualization different from containerization?::--
+-----------------------------------------------------------------
+Containerization is a way to deploy application code to run on any physical or virtual environment without changes. 
+Developers bundle application code with related libraries, configuration files, and other dependencies that the code needs to run. 
+This single package of the software, called a container, can run independently on any platform. 
+Containerization is a type of application virtualization.
+
+You can think of server virtualization as building a road to connect two places. 
+You have to recreate an entire virtual environment and then run your application on it. 
+By comparison, containerization is like building a helicopter that can fly to either of those places. 
+Your application is inside a container and can run on all types of physical or virtual environments.
+
+
+VirtualBox Setup - Linux Ubuntu & CentOS on Windows::==
+=======================================================
+Oracle VM VirtualBox is a free, open-source, cross-platform virtualization software that allows users to run multiple 
+operating systems on a single physical machine. It is a Type 2 Hypervisor (hosted hypervisor), 
+meaning it runs on top of an existing operating system like Windows, macOS, or Linux.
+
+VirtualBox is a virtualization software that allows you to create and run virtual machines (VMs) on your computer
+► Developed by Oracle Corporation
+► Free & open-source software
+
+Ubuntu Installation:--
+----------------------
+You also need to download the Ubuntu Desktop image which contains the complete OS.
+This image contains the whole operating system - including an installer
+► We can then create a virtual machine, and let VirtualBox install Ubuntu for us
+
+sudo apt update --> to check our system is up-to-date.
+---------------
+sudo apt update is a command used in Debian-based Linux distributions (such as Ubuntu) 
+to update the package lists from the repositories. 
+It doesn't install or upgrade packages but refreshes the local package index 
+to ensure your system knows about the latest available versions.
+
+sudo apt full-upgrade:--
+------------------------
+If you want to upgrade packages and handle dependencies automatically,
+
+sudo apt install build-essential linux-headers-generic dkms::--
+---------------------------------------------------------------
+The command you provided installs essential tools and dependencies for compiling software and managing 
+kernel modules in Debian-based Linux distributions like Ubuntu. Here’s a breakdown of what each package does:
+
+PACKAGE BREAKDOWN:
+
+build-essential::--
+-------------------
+Installs a collection of tools required for compiling software, including:
+GCC (GNU Compiler Collection)
+G++ (C++ Compiler)
+Make (build automation tool)
+Other necessary development tools
+
+linux-headers-generic::--
+-------------------------
+Installs the generic Linux kernel headers needed for compiling kernel modules.
+Essential when installing third-party drivers or working with DKMS.
+
+dkms (Dynamic Kernel Module Support)::--
+----------------------------------------
+Ensures that kernel modules are automatically recompiled when the kernel is updated.
+Commonly used for installing third-party drivers like NVIDIA, VirtualBox, or Wi-Fi drivers.
+
+
+
+CentOS Installation::--
+-----------------------
+Linux Installation:--
+---------------------
+1). Local Installation
+2). Network Installation
+
+CentOS is a local Installation.
+
+Installation Source 
+Software Selection 
+Installation Destination-- /(root), /home, /var,/biosboot, etc we need to give some memory for some purpose or work.
+
+Kdump:- Kernel dump:-- suppose our OS crash then we need to know why our OS crashes so for that purpose we need to have some memory space 
+						allocated for the kdump for troubleshooting.
+						
+Network host:- 
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-3
+
+Linux Terminal::==
+==================
+[root@www:~]# meaning of this terminal statement. 
+
+username --> root
+hostname --> www , jo bhi terminal open kiya h uska kuch na kuch server hoga aur hr server ka kuch naa kuch hostname hoga.
+~ --> represent the home directory.
+# --> Root User
+$ --> Normal user
+
+
+[username@hostname:path_of_working home directory]Normal User/ Root User.
+
+jis bhi user se login hua h waha se terminal open kiya gya h. 
+
+[arpit@www:~]$ --> Normal User
+
+
+File System Hierarchy::--
+-------------------------
+Server --> 500Gb Disk --> drive partition (C:\\) --> 
+/root  partition 
+
+File system Hierarchy is basically what are the file stored in the root folder of the linux system and what its use case that we called 
+as File system Hierarchy.
+
+OR
+
+The Filesystem Hierarchy Standard (FHS) in Linux defines the structure and organization of files and directories in a Linux system. 
+Below is an overview of the key directories in the root (/) directory and their purposes:
+
+IN THE CLI WE CAN FIRE THIS COMMAND::== ll /  ::--> with the help of this command we will get the details of file system Hierarchy.
+
+/root --> main directory of linux in that we have following directory.
+
+1). /bin directory --> In bin directory we have all the commands which can be run by a root user and a normal user. when we run these commands on 
+						CLI through the help of this directory all the commands get ran.
+						
+2). /boot directory --> All the booting files of our linux system(server) like kernel, grub etc. 
+						The /boot directory in Linux contains all the essential files required to boot the system. 
+						These files include the Linux kernel, bootloader, and other critical boot configuration files.
+						
+3). /dev directory --> All Disk Information, hard drive , all partition information.
+
+4). /etc directory --> Edit text configuration, linux m jitna bhi configuration karte h uska related file hame etc m milega. like 
+						creating a apache server, ftp server, linux hostname info, ip address info. 
+						IF WE WANT TO TAKE THE BACK UP OF LINUX SERVER THEN TAKE THE BACK UP OF ETC FILE. 
+						
+5). /home directory --> jitne bhi normal user create karte h unki home directory home folder m hota h. 
+
+6). /lib directory --> aapke sys OS ki Library files, 
+
+7). /lib64 directory --> 64 bit ki sari library files padi hoti h. 
+
+8). /media directory --> Mount points for removable media (USB, CD/DVD).
+
+9). /mnt directory --> Temporary mount points for external devices, we can mount hard drive, pendrive, 
+
+10). /opt directory --> all the 3rd party software that we install in linux. like VLC, adobe reader etc 
+
+11). /proc directory --> if we run anything on our linux server, it will create the process id for that running process, 
+						 That process id is stored in the proc folder. 
+						
+12). /root directory --> This is the home directory for root user.
+
+13). /run directory --> It has run time data means whenever we perform any task in linux server it has some run time data so all the 
+						run time files are in run directory. 
+						
+14). /sbin directory --> all the command for root user only.
+
+15). /srv directory --> services files means let say we have configure some server then all the services file related to that server.
+
+16). /sys directory --> system ki information, System information, hardware details.
+
+17). /tmp directory --> It stores temporary data. 
+
+18). /usr directory --> User applications and utilities.
+
+19). /var directory --> Variable files like logs (/var/log), cache, and mail. means esa data jo fix nhi hota h. 
+						
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-4
+
+
+Linux Basic Command For Beginners, How To Run Linux Commands::==
+==================================================================
+
+syntax of Command::--
+---------------------
+command options argument 
+
+command --> write the linux command
+options --> provide the options.
+argument -- to tell the command to run for a particular directory, folder, location, task or file.
+			kuch file m argument manadatory hota h, 
+
+Example:--
+----------
+ls -l /etc
+
+Commands in Linux::==
+=====================
+/root --> main directory 
+/bin , /sbin, /svr, --> sub directory 
+
+
+pwd Command::==
+===============
+
+1). pwd --> print working directory. It will print the current working directory., 
+		kon se path m bathe kr kaam kr rha hu wo hum pwd se dekh sakte h 
+		
+**** ln -s folder_name shortcut_name --> to create symbolic (soft) links(shortcut) of any folder. 
+										  here -s means it will create a symbolic soft link instead of hard link.
+		
+2). pwd -P --> The command pwd -P is used in Unix/Linux to print the absolute physical path of the current working directory, 
+				resolving any symbolic links.
+				
+				-P (Physical Path): Ensures that the output shows the actual physical directory without following symbolic (soft) links.
+				
+				pwd -L: -L, --logical
+						use PWD from environment, even if it contains symlinks
+
+3). pwd --help --> to know more about the pwd command. 
+
+
+4). su - user_name --> swtich to the normal user account from the root/ sysadmin account. 
+
+						Breakdown of the Command:--
+						---------------------------
+						i). su (Substitute User / Switch User): Used to switch to another user.
+						ii). - (Login Shell): Loads the target user’s environment variables, just like logging in from a fresh session.
+						iii). sanjay: The username you are switching to.
+						
+						exit command is used to logout from the account.
+						
+						1). su sanjay -->	Switches to "sanjay" but keeps the current user’s environment.
+						2). su - sanjay -->	Switches to "sanjay" and loads sanjay's full environment (like a fresh login).
+
+
+5). su - root --> Normal user can use this command to swtich to root user but it need the password for the normal user.
+
+					1). su root	Switches to root but keeps the current user's environment (may cause unexpected behavior).
+					2). su - root	Switches to root and loads root’s full login environment (recommended for proper root access).
+				
+				
+
+ls Command::==
+==============		
+	
+ls --> It is used to list the file and folder of the current directory.
+
+			1). ls -l :--> Shows a detailed list with permissions, owner, size, and modification date.
+			
+			File type 				Number of       owner(user)		owner(group)    size(in bytes)		last modification time		file name
+			and Permission			hard link
+			  
+			-rw-------. 			1 				root 			root 			1699 				Mar 12 01:38 				anaconda-ks.cfg
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Desktop
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Documents
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Downloads
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Music
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Pictures
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Public
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Templates
+			drwxr-xr-x. 			2 				root 			root 			   6 				Mar 12 12:35 				Videos
+			
+			First charater represent the type of the content  -,l,d.
+			
+			-- If the first charater is hypen(-) then it shows it a file type content.
+			-- If the first charater is l then it shows it a link type content.
+			-- If the first charater is d then it shows it a directory type content.
+			
+			The rest of the charater represent the permissions.
+			drwxr-xr-x --> first charater is d means directory, rest all charater means permissions
+			
+			Understanding the Output::--
+			----------------------------
+			Each line represents a file or directory and contains:
+
+			File Type & Permissions (drwxr-xr-x.)
+			Number of Hard Links (1 or 2), file ka by default 1 link, for directory it has 2 link, 
+			Owner (User) (root)
+			Owner (Group) (root)
+			File Size in Bytes (1699 or 6)
+			Last Modified Date & Time (Mar 12 01:38)
+			File/Directory Name (anaconda-ks.cfg, Desktop, Documents, etc.)
+
+			Meaning of Symbols and File::--
+			===============================
+			Symbol		Meaning
+			d			Directory
+			-			Regular file
+			r			Read permission
+			w			Write permission
+			x			Execute (run files or enter directories)
+			
+			2). ls -lh ::--> Lists files in human-readable format like show size in kb and mb (e.g., 1K, 2M instead of bytes).
+			
+			3). ls -lht ::--> show file in human readable format with set modification with respect to the time.
+			
+			4). ls -lhti ::--> Here it will show the file in human readable format with the latest modification in file with respect to time,
+								and i here, Shows inode number (unique file identifier in the filesystem).
+								
+			5). ls -lhtia ::--> Combination of -l and -a: detailed list including hidden files.
+			
+			6). ls. ::--> just to show the hidden files 
+			
+			7). ls. -l ::--> just to show the hidden files in long list detailed format.
+			
+			8). ls -lhti /etc ::--> show all the files in etc directory with the proper long list, detailed format, with time modification,
+									and show inode number also.
+									
+			9). ls --help ::--> to see al the options and detail related to the ls command.
+
+
+
+cd command::==
+==============
+
+cd --> change directory command is used to navigate between the directories. 
+
+cd folder_name 
+
+cd.. ::--> to revert back to the parent directory.
+
+cd ~ ::--> to come back to the home directory.
+
+cd - ::--> If we want to go back to the previous directory so for that we will use cd hypen(-)
+
+cd ../../..  ::--> It will take us back to 3 parent directory.
+
+cd ~/Desktop ::--> It will go to the home directory and directly jumps to the desktop directory from there.
+
+
+
+Touch Command::==
+=================
+
+Touch command jab fire kiya jata toh background m ye phele check karta h ki ye file exit toh nhi kr rhi h current directory m. 
+agr usko file mil jata h toh wo apna PRIMARY DUTY karta h nhi milti h file toh wo SECONDARY DUTY ko perform karta h 
+
+Primary Duty::--> if we got the file in current working directory it will update the timestamp for that file. 
+
+Secondary Duty::--> It will create the empty file if the file is not found. 
+
+
+1). touch File_name 
+
+
+2). stat file_name ::--> To see the timestamp of the file.
+
+			File: cloudknowlegdge
+			Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+			
+			Device: 259,2	Inode: 50865727    Links: 1
+			Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+			Context: unconfined_u:object_r:admin_home_t:s0
+			
+			Access: 2025-03-16 12:53:27.537154788 +0530
+			Modify: 2025-03-16 12:53:27.537154788 +0530
+			Change: 2025-03-16 12:53:27.537154788 +0530
+			Birth:  2025-03-16 12:53:27.537154788 +0530
+			
+			Access (atime): The last time the file was read.
+			Modify (mtime): The last time the file's content was modified.
+			Change (ctime): The last time the file’s metadata (permissions, owner, etc.) was changed.
+			Birth: The time when the file was originally created.
+
+			IF THE SAME FILE EXIT THEN IT WILL GIVE THE FOLLOWING UPDATED TIMESTAMP.
+			
+			File: cloudknowlegdge
+			Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+			
+			Device: 259,2	Inode: 50865727    Links: 1
+			Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+			Context: unconfined_u:object_r:admin_home_t:
+			
+			Access: 2025-03-16 13:02:34.010705148 +0530
+			Modify: 2025-03-16 13:02:34.010705148 +0530
+			Change: 2025-03-16 13:02:34.010705148 +0530
+			Birth:  2025-03-16 12:53:27.537154788 +0530
+			
+3). touch -a filename ::--> It only updates the access time (atime) of the file without modifying the modification time (mtime) or the content.
+4). touch -m filename ::--> It only updates the modification time (mtime) of the file without changing the access time (atime) or the content.
+5). touch -c filename ::--> It only updates the timestamps if the file exists. 
+							If the file does not exist, touch -c does nothing (it won't create a new file).
+							
+							we can use these command as touch -am filename
+
+							
+6). touch -h filename::--
+-------------------------
+to create the symbolic link 
+--> ln -s cloudknowlegdge technicalcloudknowledge --> It will create a symbolic link.
+
+--> stat cloudknowlegdge 
+--> stat technicalcloudknowledge
+here technicalcloudknowledge is link up with the cloudknowlegdge.
+
+To update the timestamp of the linked file we will use this command.
+The -h option in the touch command is used TO UPDATE THE TIMESTAMP OF A SYMBOLIC LINK rather than the actual file it points to.
+
+--> touch -h technicalcloudknowledge
+--> stat technicalcloudknowledge
+
+
+7). touch -r reference_filename another_filename::--
+----------------------------------------------------
+--> touch sanjaydahiya
+--> stat sanjaydahiya
+
+How It Works::--
+----------------
+copies the timestamps (access and modification times) from the file cloudknowledge to the file sanjaydahiya.
+
+-r <reference_file> → Copies timestamps from <reference_file> to another file.
+If sanjaydahiya does not exist, touch creates an empty file with the same timestamps as cloudknowledge.
+If sanjaydahiya already exists, its timestamps are updated but its content remains unchanged.
+
+--> touch -r cloudknowledge sanjaydahiya
+--> stat sanjaydahiya 
+
+These above 2 command help in copy the timestamp from reference_file to anotherfile
+
+
+8). touch -t timestamp filename::--
+-----------------------------------
+It will basically used to set the custom time.
+
+--> touch -t 202206121012.30 cloudknowledge
+
+The -t option in touch allows you to set a specific timestamp (modification and access time) for a file.
+
+--> touch -a -t 202206121012.30 cloudknowledge --> update the access time with custom values.
+
+--> touch -a -m -t 202206121012.30 cloudknowledge --> update the access time and modification time with the custom values.
+
+
+9). touch -a -d timestamp filename::--
+--------------------------------------
+
+The touch command with -a and -d is used to change the access time of a file to a specific date and time.
+
+Breakdown of Options::--
+------------------------
+-a → Only updates the access time (atime), without modifying the modification time (mtime).
+-d "DATE" → Sets a specific date and time for the file. main thing is it will give it in string format.
+		
+--> touch -a -d "2025-03-16 14:30" cloudknowledge
+--> stat cloudknowledge
+
+
+10).touch -a -c ::--
+--------------------
+The touch -a -c command is used to update only the access time (atime) of a file, but without creating it if it doesn’t exist.
+
+--> touch -a -c cloudknowledge
+
+
+11) Creating the Multiple file with the help of Linux Command::--
+-----------------------------------------------------------------
+--> touch abc{1...100}
+--> touch song.mp3
+
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-5
+
+
+mkdir Command::==
+=================
+The mkdir (make directory) command in Linux is used to create new directories (folders).
+
+
+Where is directories created::--
+--------------------------------
+when a root user login then the directory is created in their home directory which is the /root folder which is the home directory.
+
+when a normal user login then the directory is created in their home directory which is the /home/user_name/new_folder_name.
+
+*** ek hi naam ki directory ek location pr exisit nhi kr sakti h.
+
+	1). mkdir cloudknowledge
+
+	2). mkdir /tmp/cloudindia
+
+	3). mkdir cloudindia{linux, kali, centOS, suse} ::--> It will create the directory with cloudindialinux, cloudindiakali, cloudindiacentOS, 
+															cloudindiasuse.
+															
+	4). mkdir cloudindia{1..10} ::--> It will create 10 directory with 1,2,3,4,..10
+
+	5). mkdir cloudtechnical/{kali, redhat, suse, CentOS} ::--> It will create 4 different directory in the cloudtechnical directory.
+												here we need to first create the cloudtechnical directory after that we can fire command like this.
+
+	6). mkdir -p cloudtechnical/{kali, redhat, suse, CentOS} ::--> p here means parent, It will create the parent directory as cloudtechnical 
+																and then create the 4 other directory in that.
+																
+	7). mkdir noida dell mobile ::--> It will create the 3 directory. 										
+
+	8). mkdir 'sanjay dahiya' ::--> It will create the directory with the SPACE between the name.
+
+	9). mkdir -v india ::--> here v means verbose, option display a message for each directory they have created. 
+
+Whenever we create a directory it will provide the default permission if we want to set the permission then here is the way::--
+::--> mkdir -m 777 cloudindia
+
+mkdir --help ::--> to see the manual. 
+
+Task::--
+--------
+Q1). / ke andar ek directory banao xyz , xyz ke andar ek directory banao sanjay naam ki 
+aur sanjay naam ke andar ek directory banao dahiya naam ki.
+
+Q2). / ke andar ek directory banao linux naam ka, aur linux ke andar aap 4 directory banao redhat, suse, kali, CentOS.
+
+Here the condition is you need to fire only one commands. 
+
+Ans-1). mkdir -p /xyz/sanjay/dahiya
+
+Ans-2). mkdir -p /linux/{redhat,kali,suse,centOS}
+
+
+
+Linux Time Management::==
+=========================
+hardware --> OS --> Two Types of Clock --> System Clock and Hardware Clock.
+
+Here System clock is the time of OS, jo aapke software se related hota h. 
+and Hardware clock is set in the hardware, agar hum apne laptop ko 2 -3 days close kr de still it shows right time because of hardware clock. 
+
+System Clock::--
+----------------
+So for System clock we have commands ::--> date, timedatectl, 
+with the help of timedatectl we can set the time zone(IST,UTC,PST,etc) which could not be possible with the date command.
+
+Hardware Clock::--
+------------------
+To set the hardware clock we have command ::--> hwclcok
+
+So with the help of System clock and hardware clock we have set the time. but Suppose if we have 5000 servers then we can'nt 
+do it manually. So here comes the Network time protocol(NTP) concept in which we basically configure one time-management server 
+and all other computer are taking time from that.
+
+
+What is NTP (Network Time Protocol)?::--
+----------------------------------------
+NTP (Network Time Protocol) is a protocol used to synchronize the 
+system clock with an accurate time source over a network. 
+It ensures that computers maintain precise and consistent time, 
+which is critical for logging, security, and communication across systems.
+
+
+1). date ::--> It will tell about the Date of the system.
+
+2). date -d 'yesterday' ::--> It will tell the yesterday's date with the same time as today.
+
+3). date -d 'tomorrow' ::--> It will tell the tomorrow's date with the same time as today.
+
+4). date - d '1 second ago' ::--> It will tell the date and time 1 second ago.
+
+5). date -d '1 month ago' ::-->It will tell the date and time 1 month ago.
+
+6). date -d '1 year ago' ::--> It will tell the date and time 1 year ago. 
+
+7). date -d '10 year ago' ::--> It will tell the date and time 10 year ago.
+
+8). date 050417552023.30 ::--> It will change the date format is like month--> day-->hour-->min --> Year --> Second.
+								date MMDDHHMMYYYY.SS
+								
+9). date -s "Thu May 04 17:31:05 EDT 2022" ::--> Its used to give date in string format.
+
+10). date --help ::--> to see manual. 
+
+11). hwclock ::--> show the hardware time.
+
+12). hwclock --set --date = "put the Date here"
+
+13). timedatectl ::--> It will tell us about the time zone.
+
+		--> timedatectl list-timezones ::--> It will print the list of all the time zone.
+		
+		--> timedatectl set-timezones Asia/Kolkata ::--> It will set the time zone in asia/kolkata.
+		
+
+
+Linux History Command::==
+=========================	
+The history command in Linux is used to display a list of previously executed commands in the terminal. 
+This helps users review their command history and reuse or modify previous commands.
+
+--> history
+
+Q1). Ye aapki history command h ye linux m kon si file m jake save hoti h. 
+
+Ans 1). jo bhi hamara USER hota h, uski home directory hoti h waha pr ek file .bash_history naam se hoti h waha 
+		jake ye history command store hoti h. Sari previous command issi file m jaker store hoti h.
+		
+		OR
+		
+		jis bhi USER ke account se aap open karte ho, uss user ki home directory ke andar ek file hoti h 
+		.bash_history uss file ke andar jake store hoti h. 
+		
+*** Initally when we login with the new user and try to see the history of commands for that user we will not able to find 
+	that .bash_history file in that so we need to fire this command to see the new user history commands.
+	
+	--> history -a
+	
+	So we need to refresh the terminal for that we use one command called --> bash
+	after that if we fire command like ::--> history to see the updated command
+	
+*** So here is one probelm whenever we need to see how many commands we have fire so fire we need to fire the history -a command 
+	everytime so its a problem so for this what we need to do so that we will not be able to fire the command again and again is:-
+	
+	we need to open one file in the home directory of user which is .bashrc and update this history -a command in that it will do the further 
+	work for us.
+	
+	How we are going to update the .bashrc file??::--
+	-------------------------------------------------
+	--> vim .bashrc
+	--> press o 
+	--> go to fi then type export PROMPT_COMMAND = 'history -a'
+	--> Save the file by typing esc
+	
+*** If we want to the Date and time also with the history command then what we need to do let see.
+	--> EXPORT HISTTIMEFORMAT = '%Y %D %M %S '
+	
+	But if we have to fix that when we have see the history it will show the permanent date and time. we do'nt want to fire the 
+	command again and again.
+	
+	So for this problem again we need to update the .bashrc file we need to update this command over their.
+	
+	--> vim .bashrc
+	--> export HISTTIMEFORMAT = '%Y %D %M %S '
+	--> esc to save changes.
+	--> wq!
+	
+*** One new point here ::--> agr ham ek hi command ko multiple time ek sath fire karte h aur history ko check karte h,
+							toh hame wo command ek hi baar fire hoti hui dikhegi because different linux distribution m iss type ka setting 
+							kiya gya h, but we can change the setting let see how.::--
+							
+							So yaha pr ek variable hota h HISTCONTROL uski value hoti h ignore duplicate uski value set ki gyi h jiski wajh se hame history command m multiple 
+							command jo hum ek sath run kr dete h wo nhi show karta h. 
+							
+							--> echo $HISTCONTROL
+							value >> ignoredups
+							
+							--> unset HISTCONTROL
+							# This command used to unset the variable so that we are able to see the same command fire multiple times.
+							
+							--> export HISTCONTROL = 'ignoredups'
+							# This is used to reimplement the previous setting
+							
+*** New Point::--> Terminal m, m kuch esi command chalana chata hu ki wo history m aaye hi naa::--
+					so we need to change the setting for that. 
+					These are the temporary changes.
+					
+					--> export HISTCONTROL = 'ignorespace'
+					
+					To make these changes as a permanent then:
+					
+					--> go to .bashrc file
+					--> vim .bashrc
+					--> export HISTCONTROL ='ignorespace'
+					
+					--> save the file with esc 
+					--> wq!
+					
+					Now this will go for permanent changes.
+					
+					Now If we follow above command we have seen that in HISTCONTROL variable we are initally storing ignoredups then 
+					we go for ignorespace so it will overwrite the value so to counter this probelm we use. 
+					
+					export HISTCONTROL ='ignorespace:ignoredups' ::--> command like this
+					
+*** New Point::--> Suppose we want to have only important command in our history because generally we use history command to audit 
+					what we have done in past. So let see.
+					
+					These are the temporary changes::--
+					
+					--> export HISTIGNORE = 'ls:date:timedatectl:pwd'
+					
+					So to make this permanent::--
+					
+					--> open that .bashrc file 
+					--> vim .bashrc
+					--> press o 
+					--> export HISTIGNORE = 'ls:date:timedatectl:pwd'
+					--> save changes with esc 
+					-->wq!
+					
+					** If I want not to have any history of any command so here is the way::--
+					
+					This is again a temporary way::--
+					
+					--> set +o history 
+					
+					So to make it permanent::--
+					
+					--> open the .bashrc file
+					--> set +o history 
+					--> wq!
+					
+*** So all the above command is for Root user if we have normal user then their is one global file where i will make the changes 
+	and its applicable for all user. 
+	so for that we need to go to 
+	
+	home directory of normal user/etc/bashrc 
+	
+	--> vim /etc/bashrc 
+	--> export PROMPT_COMMAND = 'history -a'
+	--> export HISTCONTROL = 'ignoredups:ignorespace'
+	--> export HISTTIMEFORMAT = '%Y %D %M %S '
+	--> export HISTIGNORE = 'ls:date:timedatectl:pwd'
+	--> set +o history 
+	
+	--> save with esc 
+	--> :wq!
+	
+*** If we have run 500 command and we want to repeat the same command to run it again. 
+	
+	--> !160 --> It will fire the 160th command so sometimes what happened the command 
+					are too long so we have to fire the number for that command.
+					
+	--> !160:p --> It will print the command which have ran on that particular number.
+	
+	--> !! --> It will recall and execute the last command. 
+	
+	--> history - d 170 ::--> It will delete the 170th command from the history.
+	
+	--> histoy -c ::--> to delete all the history command.
+				
+				So the above command delete the history on temporary basis. 
+	
+	--> so to delete it permanent: 
+	
+	--> go to file like vim .bash_history
+	--> echo > .bash_history  ::--> to delete the history permanentely. 
+	
+How many command we can have in our history file??::--
+------------------------------------------------------
+So to see that we need to fire like
+
+--> echo $HISTSIZE
+>>> 1000
+
+--> echo $HISTFILESIZE
+>>> 
+	
+	
+					
+					
+					
+					
+					
+					
+					
+					
+							
+							
+							
+							
+							
+							
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+Lecture-4
+
+
+Access Linux Server Remotely Using SSH - Putty | Windows CMD | GitBash | MobaXterm::==
+======================================================================================
+
+What is Putty::--
+-----------------
+Its a Open Source Terminal and widely used for remote access to servers.
+OR
+
+PuTTY is a free and open-source SSH, Telnet, and serial communication client primarily used to connect remotely 
+to servers, network devices, and other systems. It is widely used by system administrators and 
+application support engineers for managing Linux/Unix servers from Windows machines.
+IT SUPPORT ALL KINDS OF PROTOCOL like raw, rlogin, serial, ssh, telnet.
+
+Jab bhi hame remotely apne computer se server ko access karna ho, toh hum putty ka use karte h.
+
+Key Features of PuTTY::--
+-------------------------
+1). SSH Client – Securely connect to remote Linux/Unix servers.
+2). Telnet Client – Used for older network communication protocols.
+3). Serial Communication – Connect to devices via COM ports (e.g., routers, switches).
+4). Port Forwarding & Tunneling – Supports SSH tunneling for secure connections.
+5). Key Authentication – Works with public/private key authentication (PuTTYgen helps generate keys).
+6). Lightweight & Fast – Small and efficient tool for remote system access.
+
+Common Uses of PuTTY::--
+------------------------
+1). Logging into Linux/Unix servers from a Windows machine.
+2). Running remote commands and managing servers.
+3). Debugging network connectivity issues.
+4). Transferring files securely using PSCP (PuTTY Secure Copy Protocol).
+5). Using X11 forwarding to run graphical applications remotely.
+
+
+ifconfig Command (Interface Configuration) in Linux:--
+------------------------------------------------------
+ifconfig is a command-line utility used to configure, manage, and display network interfaces in Unix-based systems like Linux and macOS. 
+IT IS PRIMARILY USED TO CHECK NETWORK SETTINGS, ASSIGN IP ADDRESSES, AND ENABLE/DISABLE INTERFACES.
+
+
+

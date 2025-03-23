@@ -1,0 +1,220 @@
+LINUX REBOOT AND POWEROFF::==
+=============================
+
+Different Commands That we Used are::--
+---------------------------------------
+1). Poweroff 
+2). Reboot
+3). halt
+4). init
+5). shutdown
+6). systemctl reboot
+7). systemctl poweroff
+8). systemctl suspend
+9). systemctl hibernate
+
+
+=================================================================================================================================================
+=================================================================================================================================================
+=================================================================================================================================================
+AGR HAMARE PSS DESKTOP H, TOH WO KAB ON HOTA H JAB HUM POWER USE KARTE H, 
+AUR YE JO POWER HOTA H WO HUM SMPS PR LAGATE H , 
+
+SMPS MEANS: SWTICH MODE POWER SUPPLY.
+
+SMPS is used to supply power in each hardware component like motherboard, RAM, chips etc 
+
+
+what is motherboard??::--
+-------------------------
+The motherboard is the main circuit board of a computer that connects and allows communication between all the essential components, 
+including the CPU (Central Processing Unit), RAM (Random Access Memory), storage devices, GPU (Graphics Processing Unit), and peripheral devices.
+
+Key Components of a Motherboard::--
+-----------------------------------
+1) CPU Socket – The slot where the processor (CPU) is installed.
+
+2) RAM Slots – Memory slots where RAM sticks are inserted.
+ 
+3) Chipset – Controls data flow between CPU, memory, and peripherals.
+ 
+4) PCIe Slots – Used for expansion cards like GPUs, sound cards, or network adapters.
+ 
+5) Storage Connectors – SATA or M.2 slots for hard drives (HDDs) and solid-state drives (SSDs).
+ 
+6) Power Connectors – Provides power from the PSU (Power Supply Unit).
+ 
+7) I/O Ports – Includes USB ports, audio jacks, HDMI, Ethernet, etc.
+ 
+8) BIOS/UEFI Chip – Stores firmware for booting and system settings.
+ 
+9) Cooling System Connectors – Headers for fans and liquid cooling systems.
+
+
+Types of Motherboard::--
+------------------------
+ATX (Advanced Technology eXtended), Micro-ATX, Mini-ITX, Server Motherboards
+
+
+
+*** POWEROFF::--> So Suppose, If i run command POWEROFF in backgroud what it will do is ye sare hardware component
+	like motherboard, RAM, Hard disk etc se power supply ko band kr deta h, aur hame esa feel hota h hamara OS off ho gya h 
+	but power is supplied till SMPS, not all other hardware component.
+	
+	
+*** REBOOT::--> If i run REBOOT Commands then it will boot up the OS jo hamara hard drive m store h. 
+				and hamara power hardware component m rahta h jata nhi h uss waqt m, sirf OS reboot hota h.
+	
+	
+*** RESTART::--> Here RESTART means that we need to start the computer again, go cut off the power and again restart the power.
+
+
+*** HALT Commands::--> If i press Halt command, toh ye bolta h ki motherboard ke sare component m power rahega, 
+						sirf CPU ke functions bnd ho jate h. iss command m different options ke through 
+						hum complete hardware component ko bhi bnd kr sakte h. 
+						It uses for maintenance purpose.
+	
+	
+*** INIT Commands::--> Aapke Kernel ko signal pss karne ke liye use kiya jata h. init command ke through hum sare component ko 
+						off karne ka bhi signal de sakte h.
+						
+						init 0::--> Used to off the power off. 
+						init 6::--> OS ko dubara boot karna h.
+						
+						
+*** SHUTDOWN Commands::--> Its uses to power off the system and boot the OS so that in the user friendly manner we will be able to use 
+							this command.
+							
+							OR 
+							
+							Machine ka power off bhi kara sakte h aur OS ko boot bhi kara sakte h. 
+							
+							Suppose mere server pr koi process chl rha h aur wo next 2 hr tak run karega toh uss case m hum kya karte h 
+							hum shutdown command ko schedule kr sakte h taki wo process khatam karne ke sath hi mere machine ko shutdown kr de.
+							
+							Aur ye sabse jada safe command hota h. 
+							
+							
+*** SYSTEMCTL REBOOT::--> Ye bhi OS ko dubara Boot karne ke liye use kiya jata h, So systemctl reboot main command hota h aur reboot alias 
+							bana hua h. 
+							
+							
+*** SYSTEMCTL POWEROFF::--> ye jo hota h wo power off karne ke liye use kiya jata h, 
+							ye systemctl poweroff main command h aur poweroff alias version h 
+							
+							
+*** SYSTEMCTL SUSPEND::--> 	Suspend command hardware component like motherboard ke sare component ka power 
+							bnd karegi sirf ek RAM component ko left out kr ke.
+							
+							Aur jo bhi hamare system pr on tha aur chl rha tha uski state ko capture kr ke RAM m store kara dega.
+							
+							Benefit::--> Apka System km power use kr rha h but ram ko full power supply ho rha h. and smps ko power milta 
+											rahega continously aur wo smps se power RAM ko jata rahega.
+										
+										
+*** SYSTEMCTL HIBERNATE::--> systemctl suspend::--> power bnd karga aur current state ko RAM m store karega. 
+							but in case of systemctl hibernate ye current state ko hard disk m store karega. 
+							
+							in case of systemctl hibernate power dena compouslory nhi hota h because 
+							wo hard disk m store kr rha h current state ko 
+							
+ShortCut Keys::--
+-----------------							
+ShortCut To open terminal::--> Alt+F2 then type gnome-terminal
+Shortcut key to close terminal::--> Alt+F4 OR exit
+Shortcut to open new tab::--> Cntl+shift+T
+For New Terminal ::--> Cntl+shift+N
+For Maximaize terminal --> alt+f10 
+For minimize terminal --> alt+F5
+to increase word size in terminal --> cntl+shift+ '++'
+to decrease word size in terminal::--> cntl + '-'
+
+
+LAB OF LINUX REBOOT AND POWEROFF::--
+------------------------------------
+1). shutdown ::--> It will take 1 min to shutdown by deafult.
+
+2). shutdown -c ::--> To cancel the shutdown job. 
+
+3). shutdown -r ::--> It will reboot the OS. just after 1 min by deafult.
+							
+4). shutdown now::--> It will shutdown the system now. 
+
+5). #shutdown now ::--> If we put # infront of any command it will not run the command. 
+
+6). shutdown 7:30 ::--> It will close the machine at 7:30. 
+
+7). shutdown -r 7:30 ::--> It will reboot the OS at 7:30
+
+8). shutdown -r +10 ::--> It will reboot the OS after 10 min 
+
+9). shutdown +10 ::-> Power off after 10 min 
+
+10). poweroff ::--> It will do poweroff
+
+11). poweroff --reboot ::--> It will reboot the OS.
+
+12). Halt ::--> CPU function closed. 
+
+13). reboot ::--> It will boot the OS. 
+
+14). systemctl reboot ::--> It will boot the OS
+
+15). systemctl poweroff ::--> Power off 
+
+16). halt -h ::--> poweroff kr dega, phele CPU component close karega phir power off kr dega. 
+
+17). init 0 ::--> signal pass kr ke power off kr dega. 
+
+18). init 6 ::--> signal pass kr ke OS boot karega. 
+
+19). systemctl suspend ::--> 
+
+20). systemctl hibernate ::--> 
+
+
+Q1). where does the logs of reboot and Power off will save.?? 
+
+Ans1). Toh hamare sare logs related to the poweroff and reboot /var/log/wtmp 
+		So it var directory m log directory hota h usme ek file create hota h jiska naam wtmp 
+		hota h waha pr sare logs store rahta h.
+		
+		there is one command which is used to fetch the logs details.
+		--> last ::--> It will show the logs related to the reboot and shutdown.
+		--> last -x reboot ::--> It will show the logs of reboot command.
+		--> last -x shutdown ::--> It will show the logs of shutdown command. It will fetch the details from wtmp file
+		
+*** These command poweroff, reboot, systemctl suspend , systemctl hibernate is only used by the root user by deafult. 
+	not by the normal user. 
+	
+*** But in industry we can give rights to access and run these command for the normal user. 
+
+*** If we want to give and revoke permission to the normal user or root user so that it won'nt fire the command anytime. so we 
+	need to make sure that we will disable these kind of reboot, poweroff and other command. This is the way to do that 
+	
+	--> which reboot 
+		/usr/sbin/poweroff 
+		
+	--> which halt 
+		/usr/sbin/halt
+		
+	--> which poweroff 
+		/usr/sbin/poweroff
+		
+	--> which shutdown 
+		/usr/sbin/shutdown
+		
+	--> which init 
+		/usr/sbin/init
+		
+	
+	This which command will tell us where the code command is located so it will give the path like 
+	
+	--> chmod 000 /usr/sbin/poweroff /usr/sbin/halt /usr/sbin/halt /usr/sbin/shutdown /usr/sbin/init
+	The above command is used to revoke the permission so that you wo'nt run these command. 
+	
+	
+	--> chmod 777 /usr/sbin/poweroff /usr/sbin/halt /usr/sbin/halt /usr/sbin/shutdown /usr/sbin/init
+	The above command is used to give the permission so that we can run the command.
+		
+		
