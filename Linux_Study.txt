@@ -65,6 +65,33 @@ Topics To Learn in Linux:--
 12). Firewall 
 13). TroubleShooting
 
+How to learn Linux::--
+----------------------
+Part 1::--
+----------
+Linux Intro
+Linux Installation
+Linux Basic Command To perform Basic Task.
+
+Part 2::--
+----------
+Content filter Commands and Use of that. 
+
+Part 3::--
+----------
+Change Some Setting on OS
+Admin Topic 
+user management, Premission Management, Group Management, partition Management, Software Configuration Management,
+Security Management, Firewall Management, TroubleShooting Management
+
+Linux Admin ::-- Redhat Certified System administrators(RACSA)
+
+Part 4::--
+----------
+Configure Services Like DNS service, DHCP Services, Apache Services, NFS, Maria DB
+
+Engineer exam --> Redhat Certified Engineer exam eligible
+
 
 ====================================================================================================================================================
 ====================================================================================================================================================
@@ -547,6 +574,10 @@ IN THE CLI WE CAN FIRE THIS COMMAND::== ll /  ::--> with the help of this comman
 						creating a apache server, ftp server, linux hostname info, ip address info. 
 						IF WE WANT TO TAKE THE BACK UP OF LINUX SERVER THEN TAKE THE BACK UP OF ETC FILE. 
 						
+						*** Configuration files woh files hoti hain jo system aur applications ke settings store karti hain. 
+						Linux mein yeh files mostly /etc/ directory ke andar hoti hain. 
+						Yeh files text-based hoti hain aur inhe edit karke system ya application behavior modify kiya ja sakta hai.
+						
 5). /home directory --> jitne bhi normal user create karte h unki home directory home folder m hota h. 
 
 6). /lib directory --> aapke sys OS ki Library files, 
@@ -644,8 +675,8 @@ pwd Command::==
 
 5). su - root --> Normal user can use this command to swtich to root user but it need the password for the normal user.
 
-					1). su root	Switches to root but keeps the current user's environment (may cause unexpected behavior).
-					2). su - root	Switches to root and loads root’s full login environment (recommended for proper root access).
+					1). su root	::--> Switches to root but keeps the current user's environment (may cause unexpected behavior).
+					2). su - root ::-->	Switches to root and loads root’s full login environment (recommended for proper root access).
 				
 				
 
@@ -715,7 +746,7 @@ ls --> It is used to list the file and folder of the current directory.
 			8). ls -lhti /etc ::--> show all the files in etc directory with the proper long list, detailed format, with time modification,
 									and show inode number also.
 									
-			9). ls --help ::--> to see al the options and detail related to the ls command.
+			9). ls --help ::--> to see all the options and detail related to the ls command.
 
 
 
@@ -768,7 +799,10 @@ Secondary Duty::--> It will create the empty file if the file is not found.
 			
 			Access (atime): The last time the file was read.
 			Modify (mtime): The last time the file's content was modified.
+			
 			Change (ctime): The last time the file’s metadata (permissions, owner, etc.) was changed.
+							Jab bhi file ko hum access ya modifiy karte h. Toh chnage time hamara update hota hi h.
+							
 			Birth: The time when the file was originally created.
 
 			IF THE SAME FILE EXIT THEN IT WILL GIVE THE FOLLOWING UPDATED TIMESTAMP.
@@ -859,7 +893,7 @@ Breakdown of Options::--
 --------------------
 The touch -a -c command is used to update only the access time (atime) of a file, but without creating it if it doesn’t exist.
 
---> touch -a -c cloudknowledge
+--> touch -a -c cloudknowledge ::--> file agar exisit naa karti ho toh banana bhi mt.
 
 
 11) Creating the Multiple file with the help of Linux Command::--
@@ -942,7 +976,7 @@ with the help of timedatectl we can set the time zone(IST,UTC,PST,etc) which cou
 
 Hardware Clock::--
 ------------------
-To set the hardware clock we have command ::--> hwclcok
+To set the hardware clock we have command ::--> hwclock
 
 So with the help of System clock and hardware clock we have set the time. but Suppose if we have 5000 servers then we can'nt 
 do it manually. So here comes the Network time protocol(NTP) concept in which we basically configure one time-management server 
@@ -951,10 +985,8 @@ and all other computer are taking time from that.
 
 What is NTP (Network Time Protocol)?::--
 ----------------------------------------
-NTP (Network Time Protocol) is a protocol used to synchronize the 
-system clock with an accurate time source over a network. 
-It ensures that computers maintain precise and consistent time, 
-which is critical for logging, security, and communication across systems.
+NTP (Network Time Protocol) is a protocol used to synchronize the system clock with an accurate time source over a network. 
+It ensures that computers maintain precise and consistent time, which is critical for logging, security, and communication across systems.
 
 
 1). date ::--> It will tell about the Date of the system.

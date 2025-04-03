@@ -1,0 +1,510 @@
+Advance Linux Commands Session 2::==
+====================================
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-1
+
+
+1). Awk Commands::--
+--------------------
+
+Awk Command is most powerful command to perform the operation for filter and manupulating data from files.
+
+
+Synatx::--
+----------
+awk option pattern action sourcefilename
+
+Yaha pr we need to provide the option after that pattern phir command iss pattern ko source file m check karega if we got something 
+then we will perform the action.
+
+
+Cut command hum waha pr use karte h jaha pr hamara text ek particular format m hota h. if the text is not in the particular format then 
+we have to got with the awk command. So that we get the output correctly.
+
+	
+	Use of Awk command::--
+	----------------------
+	--> ls -l | awk 'print{$1}'  ::--> It will print the 1st field from the ls -l command. 
+	--> ls -l | awk 'print{$2}'  ::--> It will print the 2st field from the ls -l command. 
+	--> ls -l | awk 'print{$3}'  ::--> It will print the 3st field from the ls -l command. 
+	
+
+	--> ls -l | awk 'print{}' ::--> It will print all the record from the ls -l command.
+
+	--> ls -l | awk 'print{$1,$5,$9}' ::--> It will give me the 1st, 5th, 9th field from the ls -l command. 
+
+
+*** Task is I need to print just the directory, file or link then this is the way i do. 
+	
+	--> awk '/^d/{print$0}' ::--> It will look for d as a first character if it found d then it will print the whole details for that otherwise 
+				  It will skip the result.
+
+	--> awk '/^-/{print$0}' ::--> It will print all the files. 
+
+*** Task is iss Particular directory m ls -l/* then this is the way of doing that:
+	
+	--> ls -l/* | awk '/^-/ print{0}' ::--> It will print all the files from that location. 
+
+	--> ls -l/* | awk '/^d/ print{0}' ::--> It will print all the directory from that location.
+
+	--> ls -l/* | awk '/^l/ print{0}' ::--> It will print all the link form that location.
+
+	*** Here Carat(^) Symbol is used to match the first character in every line.
+
+	--> ls -l/* | awk '$2 ~ /^2/ print{0} ::--> It will print all the files and directory details have the link 2. 
+
+	--> ls -l/* ::--> getting the details of files.
+	--> awk ::--> It is used to filter and manipulate the data.
+	--> '$2 ~ ::--> It is used to see the second field.
+	--> /^2/ ::--> It will search for 2 links only 
+	--> print{0} ::--> It is used to print all the data from file.
+
+	--> ls -l.* | awk '$2 ~ /^60/ print{0} ::--> 
+
+*** If someone create any file or directory then the person who has created the file or directory is the owner and group owner of that file and directory.
+
+Task ::--> mujhe harry ke sare details nikal kr doo jaha pr owner and group owner is harry.
+
+	--> ls -l/* | awk '$3 ~ /root/ {print$0}'
+	--> ls -l/* | awk '$4 ~ /root/ {print$0}'
+
+	--> ls -l/* | awk '$6 ~ /MAY/ {print$0}'
+
+	--> ls -l/* | awk '$6 ~ /Nov/ {print$0}'
+
+	--> ls -l/* | awk '$9 ~ /^il/ {print$0}'
+
+	--> ls -l/* | awk '$5 >1024 {print$0}'
+
+	--> ls -l/* | awk '$5 == 1024 {print$0}'
+
+	--> ls -l/* | awk '$5 == 6 {print$0}'
+
+	--> ls -l/* | awk '$5 ==6 && $2 == 2 print{0}'
+
+	--> ls -l/* | awk '$5 ==6 || $2 == 200 print{0}'
+
+	--> ls -l/* | awk '$9 ~ /d$/ print{0}
+
+	--> ls -l/* | awk 'print{NR, $0}' ::--> It will basically print the Number and Record(NR) 
+						ye NR hamara sare record jitney bhi file m hote h unn pr unique number put up kr deta h.
+
+*** NR = Number of Records and NF= Number of Fields.
+
+	--> ls -l/* | awk 'print{NR, $0, NF}::--> Ye hame Number of field ke bare m explain karega.
+	    ls -l/* | awk 'print{NF, $0, NR}::--> It is not giving the right result.
+
+	--> ls -l/* | awk 'print{NR ==930, NR ==940, $0, NF}::--> This will print the number of records from 930 to 940.
+
+
+Task::== /(forward slash) ke andar ek particular permission lake do. 
+
+	--> ls -l/* | awk '$1 ~ /rwxr-xr-x/ print{NR,$0,NF}
+
+	--> ls -l/* | awk '$1 ~ /rwx------/ print{NR,$0,NF}
+	
+	--> ls -l/* | awk '$1 ~ /--------/ print{NR,$0,NF}
+
+	--> ls -l/* | awk 'BEGIN {count=0;} {if ($6 == "Nov") count+=1} end {print count}'::--> ye batata h ki kitni baar Nov aa rha from the source file
+												location.
+
+	--> ls -l/* | awk 'BEGIN {print "Welcome to the cloud Knowledge"} NR = 920, NR =930 {print NR,$0,NF} END {print "Welcome to the cloud Knowledge"}'
+	    It will print the Message Welcome to the cloud Knowledge in the begin and end also. and also print the lines between 920 to 930.
+
+	
+
+*** df -h ::--> The command df -h is used to display information about the disk space usage on your system. Here's what it does:
+
+		df stands for "disk filesystem" and is used to report the amount of disk space used and available on file systems.
+
+		-h is a flag (or option) that stands for "human-readable." It formats the output in a way that's easier 
+		for humans to read by converting the disk space values into more understandable 
+		units like KB, MB, GB, etc., instead of raw blocks.
+
+
+create the file with the data. 
+
+	--> cat > techincalcloudknowledge ::--> It will create and open the file.
+
+	--> name 	dept	designation 	salary
+	--> Sanjay 	it 	ceo 		10000
+	--> harry 	IT	vp 		9000
+	--> nataha 	admin 	avp 		8000
+	--> sarah 	admin 	vp 		7000
+	--> krish 	hr 	head 		6000
+	--> mask 	hr 	manager		5000
+
+
+	--> awk '{print $1}'
+	--> awk '{print $2}'
+	--> awk '{print $3}'
+	--> awk '{print $4}'
+	--> awk '{print $5}'
+
+	
+	--> awk '{print $1,$2,$4}' OFS= '\t' technicalcloudknowledge ::--> It will print the output field separator.
+
+	--> awk '{print $1,$2,$4}' OFS= '\t' technicalcloudknowledge | column -t ::--> It will separate the columns.
+
+	--> awk  '/sanjay/ {print $0}' technicalcloudknowledge 
+
+	--> awk  '/^sanjay/ {print $0}' technicalcloudknowledge 
+
+	--> awk  '$2 ~ /^sanjay/ '{print $0}' technicalcloudknowledge 
+
+	--> awk  '$2 ~ /^sanjay/ '{print $0}' technicalcloudknowledge
+
+	--> awk  '$2 ~ /^it/ {print $0}' technicalcloudknowledge
+
+	--> awk '$1 ~ /^admin$/ {print $0}' technicalcloudknowledge
+
+	--> awk '$4 == 8000 {print $0}' technicalcloudknowledge
+
+	--> awk '$4 > 5000 {print $0}' technicalcloudknowledge
+
+	--> awk 'NR==3 , NR ==5 {print NR, $0}' technicalcloudknowledge
+
+	--> awk '{if($4 == 7000) print $0; else print $0 }' technicalcloudknowledge ::--> 
+	    It is a conditional statement used in scripting so it will basically check field 4 and print all the things. 
+
+
+*** from 56:00 try to work on cat /etc/passwd
+
+	--> awk -F':' {print $1,$3,$5}' /etc/passwd
+
+	--> cat var/log/messages ::--> It is used to store the messages. 
+
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-2
+
+
+SED Command::--
+---------------
+jab bhi linux m kaam karte h, toh hame uski services ko run karne ke liye particular configuration files ki jarurat hoti h. 
+uss files m hame operation karne hote h. Tab jake wo services properly run hoti h.
+
+operation kase hote h files m, wase hi hoti h jase hum kisi bhi file ke upar kaam karte h. 
+files m particular paramter add karna, kuch particular lines delete karna, koi particular word serach karna. 
+yahi sare operations hote h.
+
+Linux m jab bhi hame kisi file ke andar kaam karne ki need padti h, toh there are 2 ways for doing that.
+first is we can use vi or vim to perform operation on files. and second is we can use sed command to perform the operation.
+
+vim command bolta h ki agar hame files m kuch bhi change karna hota h toh hum phele usko open karte h, file ko change karte h 
+then we will then file ko save kr ke bahar aa jate h. 
+
+but at the same time SED COMMAND bolta h ki aapko file m enter karne ki jarurat nhi h. to change and modify the files. 
+
+
+SED Command is used mostly for the shell scripting. 
+
+
+About SED command::--
+---------------------
+The SED (Stream Editor) command is one of the most powerful tools used during text processing in Linux/Unix systems. 
+The SED command is generally used to perform tasks such as search and replace, text manipulation, and stream editing.
+
+Using SED, you can easily handle text files without opening them in an editor, 
+and that’s what makes it a perfect choice to edit batch files, manage log files, 
+and perform quick transformations on large files.
+
+The SED command (Stream Editor) is a text manipulation tool used to perform basic text transformations and 
+advanced operations such as find and replace, text insertion, deletion, and substitution. 
+It is commonly used in bscripts to automate tasks (such as file editing).
+
+
+	--> cp etc/passwd ::--> It will copy the current path to this location. 
+	--> ls
+	
+	--> sed 'p' passwd ::--> p used for print.
+	
+	--> sed 'p' passwd | cat -n ::--> To show the number at each line.
+
+	--> sed -n 'p' passwd | cat -n ::--> -n is basically used when we have to print the output just one time. 
+										 Generally if we do'nt use -n then it will basically print the same output as twices. 
+										 or
+										 agar if we do'nt use -n then operation karne ke baad jo changes hote h wo changes toh 
+										 print karega hi karega aur jo existing file m h wo bhi print kr deta h. 
+										 toh hame 2 baar output mil jaat h. 
+										 but if we do use -n then it will just print the change in the file. 
+	
+	
+*** Print the Multiples line.
+
+	--> sed -n '1p' passwd | cat -n	::--> It will just print the line no 1.
+	--> sed -n '2p' passwd | cat -n ::--> It will just print the line no 2.
+	--> sed -n '3p' passwd | cat -n ::--> It will just print the line no 3.
+	--> sed -n '3p;10p;15p;20p;25p' passwd | cat -n ::--> It will print the no of lines also.
+	
+	--> cat -n passwd | sed -n '40,45p' ::--> It will print the range of lines. from 40 to 45
+	--> cat -n passwd | sed -n '40,45p;30,35p;40,45p' ::--> It will print the multiple range of lines at onces.
+	
+	--> cat -n passwd | sed -n '1~2p' ::--> It will skip the lines.
+	--> cat -n passwd | sed -n '1~3p' ::--> It will skip 3 lines. and print next
+	
+*** Here In the above case we have define the number on the lines and on the basis of that we basically use the number to print the output. 
+	but now suppose if we do'nt define the number and we define the pattern or word. 
+	
+	--> cat -n passwd | sed -n '/root/p' ::--> It will search for the root word in the file and print that line.
+	--> cat -n passwd | sed -n '/mail/p' ::--> It will search for the mail word in the file and print that line.
+	--> cat -n passwd | sed -n '/ftp/p'  ::--> It will search for th ftp word in the file and print that line.
+	--> cat -n passwd | sed -n '/ntp/p'	 ::--> It will search for the ntp word in the file and print that line. 
+	
+	--> cat -n passwd | sed -n '/ntp/p;/ftp/p;/mail/p;/root/p' ::--> It will search for the multiple pattern. 
+	
+*** Print the word which is in the starting of the file.
+
+	--> cat -n passwd | sed -n '/^root/p' ::--> It will print the word root from the line which is in the starting of the line.
+	
+	--> cat -n '/^r/p' passwd ::--> It will basically search for the r in the starting of line.
+	--> cat -n '/^rt/p' passwd ::--> It will search for rt in the beginning. 
+	
+	--> cat -n '/^[rdfa]/p' passwd ::--> If we want to fetch the number of characters then will use like this. 
+	
+	--> cat -n '/^[a-f]/p' passwd ::--> we can define the range also in the to get the result based on the range.
+	
+	--> cat -n '/^root/,+3p' passwd ::-->if we want to search a specific pattern and we want to search the 
+											next 3 line of that pattern then we will use like this.
+											
+	--> cat -n '/^root/,+5p' passwd ::--> It will print the next 5 lines with the line where the pattern is matched.
+	
+	--> sed -n '/[[:upper:]]/' passwd ::--> It will print those line in which it has any upper case.
+	
+	--> sed -n '/[[:lower:]]/' passwd ::--> 
+	
+	--> sed -n '/[[:digit:]]/' passwd ::--> 
+	
+	--> sed -n '/[[:space:]]/' passwd ::--> 
+	
+	--> sed -n '/[[:punct:]]/' passwd ::--> 
+	
+	--> sed -n 'l' sanjay ::--> It will print the hidden character in the file. like \t, \n etc 
+	
+	--> sed '/root/ e date' passwd ::--> ye root ke upar date ko mention kr dega file m jaha pr bhi root milega isse. 
+	
+	--> sed 'e date' passwd ::--> ye hr line ke phele date ko mention kr dega. 
+	
+	--> sed '1 e date' passwd ::--> 1 number line ke phele date command ko mention kr dega. 
+	
+	--> sed -n '/root/ w india' passwd ::--> ye jo bhi output aayega root pattern ko match karne ke baad wo india naam ki file m store ho jayega.
+	
+	--> sed -n '=' passwd ::--> It will show the line number. 
+	
+	--> sed '=' passwd ::--> It will show the line number with the content. 
+	
+*** ye jitna bhi upar command likha h ye sara file m jaa rha h changes ho rha h and show kr rha h but original file m kuch 
+	bhi change nhi ho rha h. toh agar hame changes dekhne ke baad original file m change karna ho toh hum ye karege.
+	
+	--> cat passwd 
+	
+*** Till now we are dealing the printing operation it will ust print the changed output but now we are going to deal with the 
+	search and replace. 
+	
+	--> sed 's/root/cloudindia/' passwd ::--> ye root ko cloudindia se search karega and replace kr dega. 
+												but yaha pr root in the first line 3 baar aa rha h but isne ek hi baar change kiya h.
+												
+	--> sed '1 s/root/cloudindia/' passwd ::--> It will just change the line number 1. change root to cloudindia.
+	
+	--> sed '10 s/root/cloudindia/' passwd ::--> It will just change the line number 10. chnage root to cloudindia.
+	
+	--> sed '1,8 s/root/cloudindia/' passwd ::--> Here we have provided the range from 1 to 8. 
+	
+	--> sed '1,15 s/root/cloudindia/2' passwd ::--> yaha pr 2 ka matlab ye h ki root jab bhi 2 pr aa rha hoga toh wo usse change karega. 
+	
+	--> sed '1,15 s/root/cloudindia/2g' passwd ::--> here 2g means 2 ya 2 ke baad jitne bhi aa rha hoga usse change karega.
+	
+	--> sed -i '1,15 s/root/cloudindia/2g' passwd ::--> here abhi tak hum jo kuch bhi kr rhe thae wo hamare pss file m change nhi kr rha tha 
+														but ab jo bhi hum kr rhe h wo file m change karega. so i means insert. 
+														
+	--> sed -i.backfile ' '1,15 s/root/cloudindia/2g' passwd ::--> yaha pr change karene se phele agar hame backup lena ho toh hum iss tarah se 
+																	-i.backfile karege toh ye ek backfile naam se file create karega 
+																	aur back up ko waha store karega.
+																	
+	--> cat passwd.backfile 
+	
+	--> sed -i '/root/ a Welcome to cloud knowledge' passwd ::--> ye append karega root ke neeche welcome to cloud knowledge. 
+																	and file m insert karega because of i.
+																	
+	--> sed -i '1 s/^/#/' passwd ::--> It will comment the first line. 
+	
+	--> sed -i 's/^/#/' passwd ::--> if we do'nt give number It will comment the entire file. 
+	
+	--> sed -i '1d' passwd ::--> It will delete the 1st line. 
+	
+	--> sed -i '5d' passwd ::--> It will delete the 5th line.
+	
+	--> sed -i '1,10d' passwd ::--> delete the range of line.
+	
+	--> sed -i '10d;20d;30d;40d' passwd ::--> 
+	
+	--> sed -i '/^$/d' passwd ::--> It will remove the blank lines from the files.
+	
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-3
+
+
+Grep Command::--
+----------------
+Purpose::-- If we have linux file and we want to grap the specific line from that file then will use this grep command.
+			or 
+			kisi file ke andar se kisi command kisi pattern ko grap karne ke liye banaya hua h grep command.
+			
+
+diff between grep and sed command::--
+-------------------------------------
+	jo kaam grep command karta wo kaam sed command easily kr sakta h, but sed command is more advance than grep command.
+	Its a begineers command. 
+	
+
+Grep, egrep, fgrep::--
+----------------------
+	grep ::--> command m hum single pattern ko hi search kr sakte h. 
+	egrep ::--> enhance grep command m hum multiple pattern ko hum search kr sakte h.
+	fgrep ::--> ek same pattern hame multiple command m search karna h toh hum fgrep command use karte h.
+	
+	There are option given also in the grep command like -e and -f for the above same functionality like fgrep and egrep.
+	
+	
+*** practical::--
+-----------------
+
+	--> cp /etc/passwd ::--> copy file in current path.
+	--> ls 
+	
+	--> grep root passwd ::--> It will serach the root in the file passwd.
+	--> grep -n root passwd ::--> It will show the number where the pattern is matching in the file.
+	
+	--> grep -n -i Root passwd ::--> i is used to ignore the case sensitive pattern in the file. 
+	--> grep -n -i -o Root passwd ::--> o means here jis bhi pattern ko hum likh rhe h sirf usse hi show kare.
+	
+	--> grep -n -i -c Root passwd ::--> ye root pattern kitni line m aa rha h usse count karega. 
+	
+	--> grep -ni ^root passwd ::--> wo lines lake doo jaha pr root starting m aa rha h.
+	--> grep -ni root$ passwd ::--> ending root se ho rha h toh $ use kr loo. 
+	
+	--> grep -n -A2 root passwd ::--> -A here means that jaha pr bhi root aa rha h uske BAAD ki 2-2 line chaiye. 
+	--> grep -n -B2 root passwd ::--> -B here means that jaha pr bhi root aa rha h uske PHELE ki 2-2 line chaiye.
+	
+	--> grep -n -e 'root|ftp|mail' /etc/passwd ::--> It will search the multiple file pattern. 
+	
+	--> grep -n root /etc/passwd /etc/group /etc/shadow ::--> It will search the root in the 3 different files. 
+	--> fgrep -n root /etc/passwd /etc/group /etc/shadow ::--> It will do same work as above command.
+	--> grep -n -F root /etc/passwd /etc/group /etc/shadow ::--> It will do same work as above command.
+	
+	
+	--> grep -n -r root /etc/ ::--> If we have pattern but we do'nt know the exact path of the file then will use the -r means recursive.
+									which will search the pattern in entire directory. here with the help of -r it will just search the 
+									file which do'nt have any symbolic link 
+									
+	--> grep -n -R root /etc/ ::--> It do the same function as above command but it will also search for the symbolic link. 
+	
+	--> ifconfig | grep lo ::--> It will search the lo from the iconfig command.
+	
+	
+*** Find Command::--
+--------------------
+agar hame koi ek file ya directory hame search karna ho ki ye file or directory kis location pr h toh hum find command ka use kr sakte h.
+koi bhi file ya directory jo 10mb se upar h uska location check karna ho toh hum find command use kr sakte h. 
+esa kon sa file ya directory h jisse full permission h usko find karne ke liye find command use karte h. 
+
+jab kisi file ya folder ka location chaiye toh hum find command use karte h. 
+
+Practical::--
+-------------
+
+	--> find . -name sanjay ::--> . means current location , ye current location m sanjay naam ka file ya directory search karega. 
+	
+	--> find / -name passwd ::--> / means start the search from the root directory. and search passwd file in root directory.
+	
+	--> find / -name *pass ::--> here * means that agar hamara file kisi bi naam se start ho rha h but end wo pass se ho rha h toh ye 
+									wo lake dega. 
+									
+	--> find / -name *.conf ::--> It will bring all the conf files.
+	
+	--> find / -name *pass* ::--> starting kisi se bhi ho ending kisi se bhi ho but beeche m pass aana chaiye. 
+	
+	--> find / -iname *Passwd* ::--> It will ignore the case sensitive letters.
+	
+	--> find / -size 10mb ::--> ab ye esa file or directory ka location lake dega jo 10mb se upar se. 
+	
+	--> find / -size -10mb ::--> ab ye esa file or directory ka location lake dega jo 10mb se neeche ho. 
+	
+	--> du -sh file_location ::--> ye file ka exact size show karega. 
+	
+	--> find / -size +10mb ::--> esa data jiska file or directory 10mb se upar hoga. 
+	
+	--> du -sh file_location ::--> It will show th exact size of file. 
+	
+	--> find / -size +10mb -size -20mb ::--> 10 mb se upar but 20mb se neeche ki sari file show karega. 
+	
+	--> find / -readable ::--> esa file ya directory dekhna h jaha pr readable ki permission ho. 
+	
+	--> find / -exec ::--> 
+	
+	--> find / -writable ::--> 
+	
+	--> find / -perm 000 ::--> esa file ya folder chaiye jis pr permission 000 ho. 
+	
+	--> find / -perm 777 ::--> esa file ya folder jiska permission 777 ho. 
+	
+	--> find / -perm 777 -type d ::--> jiska type directory ho sirf wahi aayega and  jiska permission 777 ho
+	
+	--> find / -perm 777 -type f ::--> jiska type file h sirf wahi aayega and jiska permission
+	
+	--> find / -empty ::--> It will show the blank file and folders.
+	
+	--> find / -empty -type d ::--> It will give us the empty directory only. 
+	
+	--> find / -user root ::--> esa user aa rha h jiska owner root h.
+	
+	--> find / -user sanjay ::--> esa user aa rha h jiska sanjay root h.
+	
+	--> find / -user sanjay ::--> It will show the group owner. 
+	
+	--> find /cloudknowledge/ -type f -exec cp -rvf {} /file/ \; ::--> ye cloud knowledge se file ko copy karega and store karega file m. 
+	
+	--> find /cloudknowledge/* -type d -exec rm -rf {} /file/ \ ::--> agar hame cloudknowledge folder ke andar ka data delete karna ho toh. 
+	
+	--> find / -empty -exec rm -rf {} \; ::--> 
+	
+	--> find / -perm 000 ::--> esa data leke aaoo jiska perm 000 ho. 
+	
+	--> find / -perm 000 -name shadow ::--> it will just take the shadow folder with 000 permission.
+	
+	--> find / -perm 000 -name shadow -exec chmod 777 {} \; ::--> It will just take the shadow folder and change the permission to 777.
+	
+	--> find / -perm 777 -name shadow -exec chmod 000 {} \; ::--> 
+	
+	--> find / -mtime 10  ::--> it will take that data which is modified 10 days back. 
+	
+	--> find / -atime 10 
+	
+	--> find / -ctime 10
+
+												
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

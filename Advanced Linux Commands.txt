@@ -1,0 +1,379 @@
+Advanced Linux Commands::==
+===========================
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-1
+
+1). Cat
+2). tac
+3). nl
+4). less
+5). more
+6). head
+7). tail
+
+Reading files through terminals::--
+-----------------------------------
+
+
+1). Cat command::--
+-------------------
+Cat command is used to read the file. it will read the file from the old content and show the latest content in the last.
+
+	1). cat filename
+	2). cat filepath 
+
+		--> cat /etc/passwd
+		
+		--> cat -n /ect/passwd  ::--> To get the numbered details.
+
+		passwd ek file hota h jisme sare user ki information rakha hua hota h.
+	
+
+2). Tac Commands:--
+-------------------
+Its the opposite of cat command cat <--> tac 
+So it will basically print the content of file from the latest to the old one.
+
+	--> tac /etc/passwd
+	-->	tac -n /etc/passwd ::--> here -n does'nt work so jab bhi hamare pss option nhi hota h jase ouput ham lana chate h tab hum hum 
+								2 command ko with the help of pipe symbol ek sath use kr sakte h.
+								
+								when we use this pipe symbol then it will take the input from the first command and apply the second command 
+								on the output of 1st command
+	
+	--> tac /etc/passwd | nl ::--> It will print the number infront of each line of the pipe.
+	
+	
+3). Less command::--
+--------------------
+It will just print the first page of the file if the file is too large. and we can scroll till what level we need to see the file. 
+with the help of this less command we can read it  line by line and 
+
+if we press space then will read it page by page. 
+
+	--> less file_path 
+	--> q for quit
+
+	
+4). More command::--
+--------------------
+more command will tell us how much percentage of content we have read from the file. 
+
+	--> more file_path
+	
+5). head Commands::--
+---------------------
+It will print the first 10 lines from the file if we want more then we need to provide the argument for that.
+
+	--> head file_path
+	--> head -25 file_path ::--> It will print the 25 lines.
+	--> head -25 file_path | nl ::--> it will show up the number of files. 
+	
+	--> head -25 -v file_path ::--> It will tell the output is generated from which file. 
+	
+	--> head -25 -z -v file_path ::--> It will print all the lines from the file. 
+	
+	
+6). Tail Commands::--
+---------------------
+It will print the file from bottom to top. 
+	
+	--> tail /etc/passwd ::--> It will print the file from bottom to top 
+	--> tail -5 /etc/passwd ::--> It will print the last 5 lines from the file.
+	
+*** to print the lines from 31 to 35
+	
+	--> head -35 /etc/passwd | nl | tail -5
+	
+*** If the data in file is updating on the real time basis then 
+	
+	--> tail -z -v -F /etc/passwd | nl ::--> We can see the real time data which is adding in the file so for that we use -F. 
+	
+	like ex::-- 
+	-----------
+	useradd cloud
+	useradd technical 
+	
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-2
+
+
+How To Create Linux Platform Within 10 Minutes::--
+--------------------------------------------------
+--> Katacoda CentOS ::--> Go to this to create VM within 10s.
+
+We Can create the VM here in just no price to practice. 
+
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-3
+
+
+Linux Echo Command::--
+----------------------
+Echo command has multiple purpose like file creation, Content Listing, kisi file ke andar content ko likh sakte h, 
+content ko append kara sakte h, kisi file ko empty(khali) kr sakte h, echo command is used for message printing,variable printing
+It used on Daily basis for above kind of activities.
+
+	1). echo > sanjay ::--> It is used to create the file. through ls we can check if its created or not
+	
+	2). echo * ::--> It is used for content listing. It works like ls command.
+	
+	3). echo / ::--> agar mane bola echo forword slah ke andar ka content show karo.
+	
+	4). echo /* ::--> This will list the content in the /.
+
+	5). echo /etc/* ::--> It will show the content in etc file.
+	
+	6). echo $HISTSIZE ::--> These are the defined variable which has some value. 
+	
+	7). echo $HISTFILESIZE ::--> This is also the defined variable which has some value.
+	
+	8). echo $USER ::--> toh mujhe batayega m kis user se login hu. like root or normal 
+	
+	9). printenv ::--> It is used to see all the variable are there. 
+	
+	10). echo $PWD ::--> Print the Current working directory. variable ki value ko print karne ke liye bhi echo use kiya jata h.
+	
+	
+*** If i need to write something on the file then 
+	
+	--> cat sanjay  ::--> to see content of the file.
+	
+	
+	--> echo "welcome to technical cloud knowlegde"  > sanjay ::--> This will used to write something in the file. 
+	
+	
+	--> echo "welcome sahil sharma" >> sanjay ::--> If we use >> then it will append the content in the file. 
+													If we use > then it will overwrite the content.
+													
+													
+	--> echo > sanjay ::--> This will empty the file content. 
+	
+	--> echo > .bash_history ::--> It will empty the .bash_history file. 
+	--> cat .bash_history
+	
+	--> echo "Welcome to the technical cloud knowlegde" ::--> It will take it as a message. 
+	
+	
+*** Attributes Related to the Echo Command::--
+----------------------------------------------
+	
+	--> echo -e "welcome to the technical cloud \bknowlegde"
+			
+			\b ::--> Used to remove the spaces from the line 
+			-e ::--> It is used when we have to use the attributes in echo command otherwise it wo'nt work. 
+			\t ::--> Its used for tab 
+			\n ::--> It used for next line 
+			\v ::--> is the vertical tab escape sequence means jaha pr first line end hoga waha se next line m word likha hoga.
+			
+			echo -e "welcome to the technical \ccloud knowlegde"
+			\c ::--> It is used to remove the message line. the output of above line is "welcome to the technical" it will remove "cloud knowlegde"
+			
+			\r ::--> The \r escape sequence in echo -e represents a carriage return, which moves the cursor back to 
+					  the beginning of the line without advancing to a new line. 
+					  This means whatever comes after \r will overwrite what was written before it.
+					  
+
+Q1). To mail the content of some file  to boss. 
+
+Ans1). --> ls -l / > sanjay 
+	   --> cat sanjay 
+	   
+	   Here we have create a new file and list all the content which is required for us. in sanjay file. 
+	   
+	   --> lshw > sanjay 
+	   --> cat sanjay 
+	   
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-4
+
+
+Linux RM, MV And Rename Command::--
+-----------------------------------
+
+1). rm command::--
+------------------
+If we want to remove any file or directory from the linux.
+
+
+	For File::-
+	-----------
+	--> rm filename 
+	--> rm abc ::--> remove the abc file after confirmation 
+	--> rm -f abc ::--> It does'nt ask for confirmation. It will directly or you can say forcefully remove the file
+	--> rm -vf abc ::--> v and f means verbose and forcefully. so it will tell that the file is removed after removing it. 
+	
+	
+	For Directory::--
+	-----------------
+	--> rm india ::--> Can'nt remove the directory here. 
+	--> rm -r india ::--> To remove the directory we need to use -r for that. after getting the confirmation we can remove the file. 
+	--> rm -rf india ::--> remove directory forcefully.
+	--> rm -rvf india ::--> It will remove and show that the directory is removed. 
+	
+	--> If we need to remove multiple file at once.
+	--> rm -rvf * ::--> It will remove all the content of the directory at once. 
+	
+	--> If i am sitting in the root directory and want to remove the data from that directory at once. 
+	--> rm -rvf /cloudknowledge/*
+	
+	--> rm -rvf .* ::--> It will remove the hidden data. 
+	
+
+2). mv Command::--
+------------------
+If we want to move any file or directory from one location to another then will use mv command.
+	
+	--> mv filename jaha_move_karna_h_uska_naam
+	
+	--> mv abc india ::--> It will move the file abc to the india directory.
+	
+	
+3). Rename command::--
+----------------------
+If we want to rename any file or directory. 
+
+	--> rename file_name New_name old_name ::--> syntax
+	
+	--> rename india usa india 
+	
+	--> rename noida delhi noida 
+	
+
+==================================================================================================================================================
+==================================================================================================================================================
+==================================================================================================================================================
+Lecture-5	
+	   
+	   
+Linux Cut Command::--
+---------------------
+Command Need to study in this session::--
+-----------------------------------------
+;, |, cat, tac, nl, less, more, head, tail, wc, cut, awk, sed, grep, find, fmt, uniq, egrep, fgrep
+
+ye sari command help karti h content ko filter karne ke liye.
+
+Linux Filter Command::--
+------------------------
+Linux content m ek particular kind of content ko filter kr ke lekar aana h. 	
+
+				  
+If we want to fire multiple command in just one line. then 
+	
+	--> touch delhi; mkdir noida; ls -l; ifconfig
+	
+
+1). wc command::--
+------------------
+	--> cat /etc/passwd
+	
+	The wc (word count) command in Linux/Unix is used to count the number of lines, words, characters, and bytes in a file or input.
+	
+	--> wc -l /etc/passwd ::--> It will count number of line.
+	
+	--> wc -w /etc/passwd ::--> It will count the number of words.
+	
+	--> wc -c /etc/passwd ::--> It will count the number of character.
+	
+	--> iconfig | wc - ::--> how many lines in the output of iconfig file.
+	
+	--> iconfig | wc -l ::--> count the number of lines in the iconfig file.
+	
+	--> iconfig | wc -w ::--> count the number of word in iconfig file.
+	
+	--> iconfig | wc -c ::--> count the number of character in iconfig file.
+	
+	--> ls -l ::--> It will list the file and directory in long format.
+	
+	--> ls -l | wc -l ::--> count the number of lines
+	
+	--> ls -l | wc -w ::--> count the number of word 
+	
+	--> ls -l | wc -c ::--> count the number of character
+	
+	--> cat /var/log/secure ::--> Read the file.
+	
+	--> wc -l /var/log/secure ::--> count the number of lines.
+	
+	--> wc -w /var/log/secure ::--> count the number of words.
+	
+	--> wc -c /var/log/secure ::--> count the number of character.
+	
+Cut Command::--
+---------------
+The cut command in Linux is used to extract sections of text from a file or input stream. 
+It is especially useful for working with structured text like CSV files or logs.
+
+
+	--> cut -c1 /var/log/secure ::--> It will cut the first character from each line of the file.
+	--> cut -c1,2 /var/log/secure ::--> It will cut the first 2 character from each line of the file.
+	
+	--> cut -c1,2,3 /var/log/secure ::--> cut the first 3 character from each line of file.
+	
+	--> cut -c1-5 /var/log/secure
+	--> cut -c1-7 /var/log/secure
+	--> cut -c1-9 /var/log/secure
+	
+	--> cut -c15- /var/log/secure ::--> cut the character and print the character from the 15 character onwards.
+											or 15 se aage ka character ko print karega.
+	
+	--> cut -f1 /var/log/secure ::--> It will give the result on the basis of field wise. and if we do'nt provide any delimiter then 
+										it will consider the whole line as a field one 
+										
+	--> cut d' ' -f1 /var/log/secure ::--> Here we have provided the delimiter space and it will give us the first field on the basis of delimiter
+	
+	--> cut d' ' -f1,4 /var/log/secure
+	
+	--> cut d' ' -f1-4 /var/log/secure
+	
+	--> echo "Welcome:to:cloud:Knowledge:India" > log.txt
+	
+	--> cut d':' -f1 log.txt
+	
+	--> cut d':' -f1,4 log.txt
+	
+	--> cut d':' -f1-4 log.txt
+	
+	--> ls -l | cut d' ' -f1 
+	
+	--> ls -l | cut d' ' -f1,2
+	
+	--> ls -l | cut d' ' -f1,2,3
+	
+		Here cut command is not able to give me the exact output value as more space occurs in the line. so we will have to use 
+		awk command here.
+	
+	--> ls -l | awk '{print $1,$2,$3,$4,$5,$6}' ::--> So it will print the exact value of even if the sapce or some kind of delimiter occurs.
+	
+*** If we need to print the IP through ifconfig command.
+
+	--> ipconfig
+	
+	--> ifconfig | head -2 | tail -1 | cut d' ' -f2 ::--> This command does'nt work because ip comes in the middle.
+	
+	--> ifconfig | head -2 | tail -1 | awk 'print{$2}'
+	
+	
+	
+	
+	
+
+ 
+			
+	
+	
+	
+	
+	
